@@ -1,19 +1,16 @@
 const mediaData = {
+const mediaData = {
+const mediaData = {
     "2022": {
         "1": [
             { type: "video", path: "memes/2022/enero/2022_enero.mp4" },
             { type: "audio", path: "memes/2022/enero/audio.mp3" },
             { type: "image", path: "memes/2022/enero/Multimedia.png" }
         ],
-        // Agrega aquí el resto de los meses para 2022
+        // Agrega los demás meses aquí
     },
     "2023": {
-        "1": [
-            { type: "video", path: "memes/2023/enero/2023_enero.mp4" },
-            { type: "audio", path: "memes/2023/enero/audio.mp3" },
-            { type: "image", path: "memes/2023/enero/Multimedia.png" }
-        ],
-        // Agrega aquí el resto de los meses para 2023
+        // Estructura similar para 2023
     }
 };
 
