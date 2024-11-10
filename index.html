@@ -38,11 +38,11 @@
 
     <!-- Aquí se mostrará el video cuando se seleccione un mes -->
     <div id="content">
-        <!-- El contenido del mes seleccionado (videos, imágenes, etc.) se cargará aquí -->
-        <video id="video" width="640" controls>
-            <source id="video-source" type="video/mp4">
-            Tu navegador no soporta el formato de video.
-        </video>
+        <!-- Este es el bloque que se muestra cuando no hay contenido multimedia -->
+        <p>Estamos trabajando en eso.</p>
+        <!-- Aquí es donde se coloca la imagen con la ruta correcta -->
+        <img src="js/constructor.jpg" alt="Constructores" width="400">
+        <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
     </div>
 
     <script>
@@ -94,6 +94,7 @@
             if (!monthData || monthData.length === 0) {
                 contentSection.innerHTML = `
                     <p>Estamos trabajando en eso.</p>
+                    <!-- Aquí es donde se coloca la imagen con la ruta correcta -->
                     <img src="js/constructor.jpg" alt="Constructores" width="400">
                     <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
                 `;
