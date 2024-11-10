@@ -6,13 +6,17 @@
     <title>Momopedia</title>
     <link rel="stylesheet" href="estilo.css">
     <style>
-        /* Estilos básicos para ocultar/mostrar los meses y videos por definir */
+        /* Estilos básicos para ocultar/mostrar los meses y videos */
         #month-menu {
             display: block;
             margin-top: 20px;
         }
         #video-player {
             margin-top: 20px;
+        }
+        #content {
+            margin-top: 20px;
+            text-align: center;
         }
     </style>
 </head>
@@ -21,31 +25,20 @@
         <h1 style="font-weight: bold; color: #ff69b4;">Momopedia</h1>
         <nav id="year-menu">
             <ul>
-                <li><a href="#" onclick="showMonths()">2022</a></li>
+                <li><a href="#" data-year="2022" onclick="showMonths(2022)">2022</a></li>
+                <!-- Agregar más años si es necesario -->
             </ul>
         </nav>
     </header>
 
-    <!-- Aquí se mostrarán los meses del año 2022 al seleccionar el año -->
+    <!-- Aquí se mostrarán los meses al seleccionar un año -->
     <div id="month-menu">
-        <ul id="months-list">
-            <li><a href="#" onclick="showVideo(2022, 'enero')">Enero</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'febrero')">Febrero</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'marzo')">Marzo</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'abril')">Abril</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'mayo')">Mayo</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'junio')">Junio</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'julio')">Julio</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'agosto')">Agosto</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'septiembre')">Septiembre</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'octubre')">Octubre</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'noviembre')">Noviembre</a></li>
-            <li><a href="#" onclick="showVideo(2022, 'diciembre')">Diciembre</a></li>
-        </ul>
+        <!-- Los meses se cargarán dinámicamente al hacer clic en un año -->
     </div>
 
     <!-- Aquí se mostrará el video cuando se seleccione un mes -->
-    <div id="video-player">
+    <div id="content">
+        <!-- El contenido del mes seleccionado (videos, imágenes, etc.) se cargará aquí -->
         <video id="video" width="640" controls>
             <source id="video-source" type="video/mp4">
             Tu navegador no soporta el formato de video.
@@ -53,18 +46,82 @@
     </div>
 
     <script>
-        // Función para mostrar el video correspondiente a un mes en el año 2022
-        function showVideo(year, month) {
-            const videoFile = `${year}_${month}.mp4`; // Video en formato 2022_enero.mp4
-            const videoElement = document.getElementById("video");
-            const videoSource = document.getElementById("video-source");
+        // Datos de los medios, organizada por año y mes
+        const mediaData = {
+            "2022": {
+                "1": [
+                    { type: "video", path: "memes/2022/enero/2022_enero.mp4" },
+                    { type: "audio", path: "memes/2022/enero/audio.mp3" },
+                    { type: "image", path: "memes/2022/enero/Multimedia.png" }
+                ],
+                "2": [
+                    { type: "video", path: "memes/2022/febrero/2022_febrero.mp4" },
+                    { type: "audio", path: "memes/2022/febrero/audio.mp3" },
+                    { type: "image", path: "memes/2022/febrero/Multimedia.png" }
+                ],
+                // Agregar los otros meses de 2022 aquí...
+            }
+        };
 
-            // Establecer la fuente del video
-            videoSource.src = videoFile;
+        // Función para mostrar los meses de un año al hacer clic en el año
+        function showMonths(year) {
+            const monthMenu = document.getElementById("month-menu");
+            const months = [
+                "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ];
 
-            // Recargar el video para que se reproduzca
-            videoElement.load();
-            videoElement.play();
+            // Limpiar el contenido anterior
+            monthMenu.innerHTML = `<h2>Selecciona un mes de ${year}</h2>`;
+            const ul = document.createElement("ul");
+
+            months.forEach((month, index) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<a href="#" onclick="showMedia(${year}, ${index + 1})">${month}</a>`;
+                ul.appendChild(li);
+            });
+
+            monthMenu.appendChild(ul);
+        }
+
+        // Función para mostrar el contenido (videos, imágenes, audios) del mes seleccionado
+        function showMedia(year, month) {
+            const monthData = mediaData[year] && mediaData[year][month];
+
+            const contentSection = document.getElementById("content");
+            contentSection.innerHTML = ''; // Limpiar contenido anterior
+
+            if (!monthData || monthData.length === 0) {
+                contentSection.innerHTML = `
+                    <p>Estamos trabajando en eso.</p>
+                    <img src="constructor.jpg" alt="Constructores" width="400">
+                    <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
+                `;
+                return;
+            }
+
+            // Recorrer los medios del mes seleccionado y mostrarlos
+            monthData.forEach(file => {
+                if (file.type === "video") {
+                    contentSection.innerHTML += `
+                        <video width="640" controls>
+                            <source src="${file.path}" type="video/mp4">
+                            Tu navegador no soporta el formato de video.
+                        </video>
+                    `;
+                } else if (file.type === "audio") {
+                    contentSection.innerHTML += `
+                        <audio controls>
+                            <source src="${file.path}" type="audio/mp3">
+                            Tu navegador no soporta el formato de audio.
+                        </audio>
+                    `;
+                } else if (file.type === "image") {
+                    contentSection.innerHTML += `
+                        <img src="${file.path}" alt="Imagen" width="400">
+                    `;
+                }
+            });
         }
     </script>
 </body>
