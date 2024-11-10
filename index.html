@@ -5,10 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momopedia</title>
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Estilos básicos para ocultar/mostrar los meses y videos por definir */
+        #month-menu {
+            display: block;
+            margin-top: 20px;
+        }
+        #video-player {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1 style="font-weight: bold; color: #ff69b4;">Momopedia</h1>
         <nav id="year-menu">
             <ul>
-                <li><a href="#" data-year="2022">2022</
+                <li><a href="#" onclick="showMonths()">2022</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Aquí se mostrarán los meses del año 2022 al seleccionar el año -->
+    <div id="month-menu">
+        <ul id="months-list">
+            <li><a href="#" onclick="showVideo(2022, 'enero')">Enero</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'febrero')">Febrero</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'marzo')">Marzo</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'abril')">Abril</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'mayo')">Mayo</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'junio')">Junio</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'julio')">Julio</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'agosto')">Agosto</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'septiembre')">Septiembre</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'octubre')">Octubre</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'noviembre')">Noviembre</a></li>
+            <li><a href="#" onclick="showVideo(2022, 'diciembre')">Diciembre</a></li>
+        </ul>
+    </div>
+
+    <!-- Aquí se mostrará el video cuando se seleccione un mes -->
+    <div id="video-player">
+        <video id="video" width="640" controls>
+            <source id="video-source" type="video/mp4">
+            Tu navegador no soporta el formato de video.
+        </video>
+    </div>
+
+    <script>
+        // Función para mostrar el video correspondiente a un mes en el año 2022
+        function showVideo(year, month) {
+            const videoFile = `${year}_${month}.mp4`; // Video en formato 2022_enero.mp4
+            const videoElement = document.getElementById("video");
+            const videoSource = document.getElementById("video-source");
+
+            // Establecer la fuente del video
+            videoSource.src = videoFile;
+
+            // Recargar el video para que se reproduzca
+            videoElement.load();
+            videoElement.play();
+        }
+    </script>
+</body>
+</html>
