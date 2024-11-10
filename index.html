@@ -23,14 +23,21 @@
 <body>
     <header>
         <h1 style="font-weight: bold; color: #ff69b4;">Momopedia</h1>
-        <nav id="year-menu">
+         <nav id="year-menu">
             <ul>
+                <!-- Lista de años del 2016 al 2024 -->
+                <li><a href="#" data-year="2016" onclick="showMonths(2016)">2016</a></li>
+                <li><a href="#" data-year="2017" onclick="showMonths(2017)">2017</a></li>
+                <li><a href="#" data-year="2018" onclick="showMonths(2018)">2018</a></li>
+                <li><a href="#" data-year="2019" onclick="showMonths(2019)">2019</a></li>
+                <li><a href="#" data-year="2020" onclick="showMonths(2020)">2020</a></li>
+                <li><a href="#" data-year="2021" onclick="showMonths(2021)">2021</a></li>
                 <li><a href="#" data-year="2022" onclick="showMonths(2022)">2022</a></li>
-                <!-- Agregar más años si es necesario -->
+                <li><a href="#" data-year="2023" onclick="showMonths(2023)">2023</a></li>
+                <li><a href="#" data-year="2024" onclick="showMonths(2024)">2024</a></li>
             </ul>
         </nav>
     </header>
-
     <!-- Aquí se mostrarán los meses al seleccionar un año -->
     <div id="month-menu">
         <!-- Los meses se cargarán dinámicamente al hacer clic en un año -->
