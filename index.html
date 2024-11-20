@@ -45,71 +45,21 @@
         /* Animación del título */
         @keyframes titleAnimation {
             0% {
-                font-size: 50px;
+                font-size: 80px;
                 opacity: 0;
             }
             100% {
-                font-size: 20px;
+                font-size: 40px;
                 opacity: 1;
             }
         }
 
         #title {
             animation: titleAnimation 3s ease-in-out forwards;
-            margin-bottom: 20px;
             font-weight: bold;
             color: #ff69b4;
-        }
-
-        /* Animación Block Reveal */
-        .block-effect {
-            font-size: calc(8px + 6vw);
             text-align: center;
-        }
-
-        .block-reveal {
-            --t: calc(var(--td) + var(--d));
-            color: transparent;
-            padding: 4px;
-            position: relative;
-            overflow: hidden;
-            animation: revealBlock 0s var(--t) forwards;
-        }
-
-        .block-reveal::after {
-            content: '';
-            width: 0%;
-            height: 100%;
-            padding-bottom: 4px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: var(--bc);
-            animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
-        }
-
-        @keyframes revealBlock {
-            100% {
-                color: #0f0f0f;
-            }
-        }
-
-        @keyframes revealingIn {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-        @keyframes revealingOut {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(100%);
-            }
+            margin-top: 50px;
         }
 
         /* Estilos para el Botón */
@@ -130,43 +80,19 @@
             font-size: 35px;
         }
 
-        .btn {
-            border: none;
+        /* Hover effect en menú de años */
+        #year-menu ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 5px 10px;
             display: block;
-            text-align: center;
-            cursor: pointer;
-            text-transform: uppercase;
-            outline: none;
-            overflow: hidden;
-            position: relative;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        #year-menu ul li a:hover,
+        #year-menu ul li a.active {
             color: #fff;
-            font-weight: 700;
-            font-size: 15px;
-            background-color: #222;
-            padding: 17px 60px;
-            margin: 0 auto;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.20);
-        }
-
-        .btn span {
-            position: relative;
-            z-index: 1;
-        }
-
-        .btn:after {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 490%;
-            width: 140%;
-            background: #78c7d2;
-            transition: all .5s ease-in-out;
-            transform: translateX(-98%) translateY(-25%) rotate(45deg);
-        }
-
-        .btn:hover:after {
-            transform: translateX(-9%) translateY(-25%) rotate(45deg);
+            background-color: #000;
         }
 
         /* Estilos para el enlace del Instagram */
@@ -193,20 +119,6 @@
         .link a {
             color: #000;
             font-size: 25px;
-        }
-
-        /* Cambio de color en los enlaces del menú */
-        #year-menu ul li a {
-            text-decoration: none;
-            color: #000;
-            padding: 5px 10px;
-            display: block;
-        }
-
-        #year-menu ul li a:hover,
-        #year-menu ul li a.active {
-            color: #fff;
-            background-color: #000;
         }
     </style>
 </head>
@@ -241,22 +153,17 @@
         <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
     </div>
 
-    <!-- Animación de "Block Reveal" -->
-    <h1 class="block-effect" style="--td: 1.2s">
-        <div class="block-reveal" style="--bc: #4040bf; --d: .1s">Block</div>
-        <div class="block-reveal" style="--bc: #bf4060; --d: .5s">Revealing Effect</div>
-    </h1>
-
-    <!-- Botón con hover effect -->
-    <div class="button_container">
-        <p class="description">A simple pure CSS hover effect</p>
-        <button class="btn"><span>Hover me!</span></button>
-    </div>
-
     <!-- Icono de Instagram (SVG) que redirige al perfil -->
     <a target="_blank" href="https://www.instagram.com/tuusuario" id="svg-wrapper">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="[_{{{CITATION{{{_1{](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)[_{{{CITATION{{{_2{](https://github.com/tomfarrelly/myAgent-PP/tree/31dd137a231e873c50d84406ad4c19ad72f32f8e/resources%2Fviews%2Fabout.blade.php)[_{{{CITATION{{{_3{](https://github.com/urvishd/Mobile-Recharge-System-PHP/tree/0623108ff5ce19323d492583c981fe00e96685b8/home2.php)[_{{{CITATION{{{_4{](https://github.com/Hedisaker/apprendre-arab/tree/eaf571a3273c6f7fa0af0c9053a8c680ba9a7df6/resources%2Fviews%2Fkids%2Flettredetailex3.blade.php)[_{{{CITATION{{{_5{](https://github.com/thenam153/laravel-sale-phone/tree/eefa40dbc5ca56ff983c3b00707acba2caf7e5ec/resources%2Fviews%2Fuser%2Fmodules%2Fuser_info_md.blade.php)[_{{{CITATION{{{_6{](https://github.com/Weight-Lifting-10/frontend/tree/3150377862006aaee03724c341db25fb53b7377e/lifting%2Fsrc%2Fcomponents%2FLogin%2FloginForm.js)[_{{{CITATION{{{_7{](https://github.com/nathana24/Portfolio/tree/dd7c69cbfc184c4980c9733056db87435227b114/resources%2Fviews%2Fhome.blade.php)[_{{{CITATION{{{_8{](https://github.com/MarkJaysonNoguerra/imageclassifier/tree/7471605668afeb09a8caaf4fb20c1574d534efa4/docs%2Fmain-es5.5188e3bc3fdbc42188fe.js)[_{{{CITATION{{{_9{](https://github.com/HarshOza36/MovieReviewSystem/tree/c3a37376836cb0ae0b9e5dc187d90241faed22f1/wlcm.php)    
-    <script>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 73 73" style="enable-background:new 0 0 73 73;">
+            <path class="st0" d="M36.5,0C16.3,0,0,16.3,0,36.5S16.3,73,36.5,73S73,56.7,73,36.5S56.7,0,36.5,0z M48.6,18.3h9.1
+                c0.6,0,1.1,0.5,1.1,1.1v9.1c0,0.6-0.5,1.1-1.1,1.1h-9.1c-0.6,0-1.1-0.5-1.1-1.1v-9.1C47.6,18.9,48,18.3,48.6,18.3z M36.5,23.4
+                c7.2,0,13.1,5.9,13.1,13.1S43.7,49.6,36.5,49.6S23.4,43.7,23.4,36.5S29.3,23.4,36.5,23.4z M52.8,54.3
+                c-1.8,2.5-4.3,4.5-7.2,5.7c-3,1.3-6.4,1.9-9.7,1.9s-6.7-0.6-9.7-1.9c-2.9-1.2-5.4-3.2-7.2-5.7c-1.8-2.5-3.1-5.5-3.9-8.8
+                C14,41,13.5,37.7,13.5,34.4c0-3.3,0.5-6.7,1.7-9.9c0.8-2.2,2-4.1,3.6-5.7c1.5-1.7,3.3-3,5.3-4c2.3-1.2,4.7-2,7.3-2.5
+                C32,12.4,34,12,36.5,12s4.5,0.4,6.7,1.1c2.6,0.6,5,1.7,7.2,3c2,1.2,3.7,2.9,5.1,4.9c1.4,2,2.4,4.3,3.1,6.7c0.7,2.3,1.1,4.7,1.1,7.2
+                c0,3.3-0.5,6.6-1.7,9.7C55.8[_{{{CITATION{{{_1{](https://github.com/la9una/web/tree/ba1073ae044ebb7b538a3b13f0f9598f7c410bb6/docs%2Fbootstrap%2Falignci.md)
+<script>
 const mediaData = {
     "2016": {
         "1": [
