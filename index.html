@@ -51,58 +51,7 @@
         <img src="https://ttpapu.github.io/prueba0.1/carga.jpg" alt="Constructores" width="400">
         <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
     </div>
-
-    <script>
-const mediaData = {
-    "2016": {
-        "1": [
-            { type: "video", path: "memes/2016/enero/2016_enero.mp4" },
-            { type: "audio", path: "memes/2016/enero/audio.mp3" },
-            { type: "image", path: "memes/2016/enero/Multimedia.png" }
-        ],
-        "2": [
-            { type: "video", path: "memes/2016/febrero/2016_febrero.mp4" },
-            { type: "audio", path: "memes/2016/febrero/audio.mp3" },
-            { type: "image", path: "memes/2016/febrero/Multimedia.png" }
-        ],
-    },
-    // Más datos aquí...
-};
-
-function showMonths(year) {
-    const monthMenu = document.getElementById('month-menu');
-    monthMenu.innerHTML = ''; // Limpia el contenido anterior
-    const months = Object.keys(mediaData[year]);
-    months.forEach(month => {
-        const link = document.createElement('a');
-        link.href = '#';
-        link.textContent = `Mes ${month}`;
-        link.onclick = () => showMedia(year, month);
-        monthMenu.appendChild(link);
-    });
-}
-
-function showMedia(year, month) {
-    const content = document.getElementById('content');
-    content.innerHTML = ''; // Limpia el contenido anterior
-    const media = mediaData[year][month];
-    media.forEach(item => {
-        let element;
-        if (item.type === 'video') {
-            element = document.createElement('video');
-            element.src = item.path;
-            element.controls = true;
-        } else if (item.type === 'audio') {
-            element = document.createElement('audio');
-            element.src = item.path;
-            element.controls = true;
-        } else if (item.type === 'image') {
-            element = document.createElement('img');
-            element.src = item.path;
-        }
-        content.appendChild(element);
-    });
-}    
+        
 <script>
 const mediaData = {
     "2016": {
