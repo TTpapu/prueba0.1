@@ -18,6 +18,10 @@
             background-color: #ff69b4;
             color: #fff;
             padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         nav ul {
@@ -43,11 +47,11 @@
         }
 
         #month-menu, #content {
-            margin-top: 20px;
+            margin-top: 70px; /* Ajuste para que el contenido no quede oculto tras el header */
         }
 
         #content img {
-            max-width: 100%;
+            max-width: 50%; /* Imagen más pequeña */
             height: auto;
         }
 
@@ -67,7 +71,7 @@
         <h1>Momopedia</h1>
         <nav id="year-menu">
             <ul>
-               <!-- Lista de años del 2016 al 2024 -->
+                 <!-- Lista de años del 2016 al 2024 -->
                 <li><a href="#" data-year="2016" onclick="showMonths(2016)">2016</a></li>
                 <li><a href="#" data-year="2017" onclick="showMonths(2017)">2017</a></li>
                 <li><a href="#" data-year="2018" onclick="showMonths(2018)">2018</a></li>
@@ -88,11 +92,7 @@
         <p>Estamos trabajando en eso.</p>
         <img src="https://ttpapu.github.io/prueba0.1/carga.jpg" alt="Constructores">
         <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
-    </div>
-    <script>
-        function showMonths(year) {
-            // Aquí puedes añadir el código para mostrar los meses y videos
-            alert("Mostrar meses para el año " + year);
+    </div>     
 <script>
 const mediaData = {
     "2016": {
