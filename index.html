@@ -9,15 +9,15 @@
         /* Estilos básicos */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: #1a1a1a;
+            color: #ddd;
             text-align: center;
         }
 
         header {
-            background-color: #ff69b4;
+            background-color: #333;
             color: #fff;
-            padding: 10px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -27,27 +27,31 @@
         nav ul {
             list-style: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            display: inline;
-            margin: 0 10px;
+            margin: 10px;
         }
 
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 10px 20px;
             border-radius: 5px;
+            background-color: #555;
             transition: background-color 0.3s ease;
         }
 
         nav ul li a:hover {
-            background-color: #ff85c3;
+            background-color: #777;
         }
 
         #month-menu, #content {
-            margin-top: 70px; /* Ajuste para que el contenido no quede oculto tras el header */
+            margin-top: 80px; /* Ajuste para que el contenido no quede oculto tras el header */
         }
 
         #content img {
@@ -64,14 +68,35 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #ff69b4;
+        }
     </style>
+    <!-- Añadir enlace al icono de Instagram -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>Momopedia</h1>
         <nav id="year-menu">
             <ul>
-                 <!-- Lista de años del 2016 al 2024 -->
+                <!-- Lista de años del 2016 al 2024 -->
                 <li><a href="#" data-year="2016" onclick="showMonths(2016)">2016</a></li>
                 <li><a href="#" data-year="2017" onclick="showMonths(2017)">2017</a></li>
                 <li><a href="#" data-year="2018" onclick="showMonths(2018)">2018</a></li>
@@ -83,6 +108,9 @@
                 <li><a href="#" data-year="2024" onclick="showMonths(2024)">2024</a></li>
             </ul>
         </nav>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/tu_cuenta" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
     </header>
     <!-- Aquí se mostrarán los meses al seleccionar un año -->
     <div id="month-menu"></div>
@@ -92,7 +120,7 @@
         <p>Estamos trabajando en eso.</p>
         <img src="https://ttpapu.github.io/prueba0.1/carga.jpg" alt="Constructores">
         <p>Aún nos falta información por poner. Recuerda que todavía es una versión beta. ¡Gracias por visitarnos!</p>
-    </div>     
+    </div>
 <script>
 const mediaData = {
     "2016": {
