@@ -35,17 +35,22 @@ document.addEventListener("DOMContentLoaded", function () {
                             case 'webm': videoType = 'video/webm'; break;
                             default: videoType = 'video/mp4'; // defaulting to mp4
                         }
-                        contentSection.innerHTML += `
-                            <video width="640" height="480" controls>
-                                <source src="${file.path}" type="${videoType}">
-                                Tu navegador no soporta el formato ${file.format.toUpperCase()}.
-                            </video>
-                        `;
+                        const videoElement = document.createElement("video");
+                        videoElement.width = 640;
+                        videoElement.height = 480;
+                        videoElement.controls = true;
+
+                        const sourceElement = document.createElement("source");
+                        sourceElement.src = file.path;
+                        sourceElement.type = videoType;
+
+                        videoElement.appendChild(sourceElement);
+                        contentSection.appendChild(videoElement);
                     }
                 });
             });
         });
     }
-    
+
     loadMedia();
 });
