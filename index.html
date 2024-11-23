@@ -55,6 +55,10 @@
 
                                 videoElement.appendChild(sourceElement);
                                 contentSection.appendChild(videoElement);
+
+                                // Añadir un salto de línea después de cada video para mejor visibilidad
+                                const br = document.createElement("br");
+                                contentSection.appendChild(br);
                             }
                         });
                     });
