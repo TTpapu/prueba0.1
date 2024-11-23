@@ -152,12 +152,13 @@
 const mediaData = {
     "2016": {
         "1": [
-            { type: "video", path: "memes/2016/enero/2016_enero.mp4" },
+            { type: "video", path: "memes/2016/enero/2016_enero.avi" },
+            { type: "video", path: "memes/2016/enero/2016_enero.webm" },
             { type: "audio", path: "memes/2016/enero/audio.mp3" },
             { type: "image", path: "memes/2016/enero/Multimedia.png" }
         ],
         "2": [
-            { type: "video", path: "memes/2016/febrero/2016_febrero.mp4" },
+            { type: "video", path: "memes/2016/febrero/2016_febrero.mkv" },
             { type: "audio", path: "memes/2016/febrero/audio.mp3" },
             { type: "image", path: "memes/2016/febrero/Multimedia.png" }
         ],
@@ -172,7 +173,7 @@ const mediaData = {
             { type: "image", path: "memes/2016/abril/Multimedia.png" }
         ],
         "5": [
-            { type: "video", path: "memes/2016/mayo/2016_mayo.mp4" },
+            { type: "video", path: "memes/2016/mayo/2016_mayo.mov" },
             { type: "audio", path: "memes/2016/mayo/audio.mp3" },
             { type: "image", path: "memes/2016/mayo/Multimedia.png" }
         ],
@@ -207,7 +208,7 @@ const mediaData = {
             { type: "image", path: "memes/2016/noviembre/Multimedia.png" }
         ],
         "12": [
-            { type: "video", path: "memes/2016/diciembre/2016_diciembre.mp4" },
+            { type: "video", path: "memes/2016/diciembre/2016_diciembre.webm" },
             { type: "audio", path: "memes/2016/diciembre/audio.mp3" },
             { type: "image", path: "memes/2016/diciembre/Multimedia.png" }
         ]
@@ -773,7 +774,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (file.type === "video") {
                 contentSection.innerHTML += `
                     <video width="400" controls>
-                        <source src="${file.path}" type="video/mp4">
+                        <source src="${file.path}" type="video/avi">
                         Tu navegador no soporta la etiqueta de video.
                     </video>
                 `;
